@@ -131,7 +131,8 @@ impl InnerWebView {
           encode_wide(pl_attrs.additional_browser_args.unwrap_or_else(|| {
             // remove "mini menu" - See https://github.com/tauri-apps/wry/issues/535
             // and "smart screen" - See https://github.com/tauri-apps/tauri/issues/1345
-            "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection".to_string()
+            "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --disable-web-security"
+              .to_string()
           }))
           .as_ptr(),
         ));
